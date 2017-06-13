@@ -19,6 +19,11 @@ namespace gSLICr
 			core_engine(const objects::settings& in_settings);
 			~core_engine();
 
+			// Function to get superpixel info
+			objects::spixel_info* Get_SPIX_INFO(Vector2i &size){
+				slic_seg_engine->Get_SPixel_info(size);
+			}
+
 			// Function to segment in_img
 			void Process_Frame(UChar4Image* in_img);
 

@@ -38,6 +38,11 @@ namespace gSLICr
 
 			seg_engine(const objects::settings& in_settings );
 			virtual ~seg_engine();
+			objects::spixel_info* Get_SPixel_info(Vector2i &size) {
+				size = spixel_map->noDims;
+				spixel_map->UpdateHostFromDevice();
+				return spixel_map->GetData(MEMORYDEVICE_CPU);
+			}
 
 			const IntImage* Get_Seg_Mask() const {
 				idx_img->UpdateHostFromDevice();
